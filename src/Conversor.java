@@ -1,19 +1,33 @@
-import javax.swing.*;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Conversor {
-    public static void converterMoedaBrasileiraEua() throws IOException {
-        BigDecimal exchangeRate = new BigDecimal(5.20);
-        Scanner dados = new Scanner(System.in);
-        System.out.println("Informe valor em reais: ");
-        BigDecimal real = dados.nextBigDecimal();
+
+    public static BigDecimal converterMoedaBrasileiraEua(BigDecimal dados) throws IOException {
+        BigDecimal exchangeRate = new BigDecimal(5.26);
+        //Scanner dados = new Scanner(System.in);
+        //System.out.println("Informe valor em reais: ");
+        BigDecimal real = dados;
         BigDecimal valueInReal = new BigDecimal(String.valueOf(real));
         BigDecimal valueInDollar = valueInReal.divide(exchangeRate, 2, BigDecimal.ROUND_HALF_UP);
         System.out.println("O valor em dólar é: $" + valueInDollar);
 
+        return valueInDollar;
     }
+
+    public static BigDecimal converterMoedaEuaBrasileira(BigDecimal dados) throws IOException {
+        BigDecimal exchangeRate = new BigDecimal(0.19);
+        //Scanner dados = new Scanner(System.in);
+        //System.out.println("Informe valor em reais: ");
+        BigDecimal real = dados;
+        BigDecimal valueInReal = new BigDecimal(String.valueOf(real));
+        BigDecimal valueInDollar = valueInReal.divide(exchangeRate, 2, BigDecimal.ROUND_HALF_UP);
+        System.out.println("O valor em reais é: $" + valueInDollar);
+
+        return valueInDollar;
+    }
+
     public static void converterMoedaBrasileiraEuro() throws IOException {
         BigDecimal exchangeRate = new BigDecimal(5.61);
         Scanner dados = new Scanner(System.in);

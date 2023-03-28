@@ -3,20 +3,19 @@
 >Status: **Desenvolvendo**💻
 ## Challenge ONE Back End!
 
-![gif_conversor](link de imagem)
+![alura-logo](https://user-images.githubusercontent.com/107167711/226222830-db2f671b-3e9f-4bd5-bb1e-f339a85abe3a.png)
 
 ### **Descrição**📃
 
-Desafio do Alura + ONE Desenvolver um conversor de moedas com interface grafica utilizando Java e Swing.
+Desafio da Alura + ONE Desenvolver um conversor de moedas com interface grafica utilizando Java e Swing.
 
 #### Elementos principais do programa:
 
 - Menu principal;
 - Opções para converter moeda;
 - Janela para inserir os valores para serem convertidos;
-- Janela para exibir os resultados;
-- Janela para perguntar se deseja conveter outros valores;
-- Janela para exibir que o programa foi finalizado.
+- Caixa de resultado;
+
 
 #### As características solicitadas:
 
@@ -35,4 +34,8 @@ Desafio do Alura + ONE Desenvolver um conversor de moedas com interface grafica 
 >       - Converter de Libras Esterlinas a Reais
 >       - Converter de Peso argentino a  Reais
 >       - Converter de Peso Chileno a Reais
+
+### Conversor
+![java_4UNhGtCX7a](https://i.pinimg.com/564x/58/53/f5/5853f5d5d5d024029265dc112f3902d1.jpg)
+
 ###### *Desafio extra: Adicionar outro tipo de conversor no programa.*

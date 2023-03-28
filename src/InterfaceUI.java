@@ -6,151 +6,126 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
-public class InterfaceUI extends JFrame{
-    private JTextField tfValor1, tfValor2,tfValor3,tfValor4,tfValor5,tfValor6;
-    private JButton bLimpar, bConverter;
-    private JLabel jUnidade1, jUnidade2,jUnidade3, jUnidade4, jUnidade5,jUnidade6;
-    private DecimalFormat df = new DecimalFormat("###,#0.00");
+public class InterfaceUI extends JFrame {
+    private JLabel jUnidade1, jUnidade2, jUnidade3, jUnidade4, jUnidade5, jUnidade6;
+    private JLabel junit1,junit2,junit3,junit4,junit5,junit6;
+    private DecimalFormat df = new DecimalFormat("####,#00.00");
 
-    public InterfaceUI(){
+    JTextField jTextField = new JTextField();
+    JLabel resultado = new JLabel("Resultado");
+
+    public InterfaceUI() {
+
         super("Conversor");
 
-        jUnidade1 = new JLabel("Real");
-        jUnidade2 = new JLabel("Dólar");
-        jUnidade3 = new JLabel("Euro");
-        jUnidade4 = new JLabel("Libras Esterlinas");
-        jUnidade5 = new JLabel("Peso Argentino");
-        jUnidade6 = new JLabel("Peso Chileno");
+        jUnidade1 = new JLabel("Dólar");
+        jUnidade2 = new JLabel("Euro");
+        jUnidade3 = new JLabel("Libras Esterlinas");
+        jUnidade4 = new JLabel("Peso Argentino");
+        jUnidade5 = new JLabel("Peso Chileno");
+        jUnidade6 = new JLabel("Real");
 
-        tfValor1 = new JTextField(10);
-        tfValor2 = new JTextField(10);
-        tfValor3 = new JTextField(10);
-        tfValor4 = new JTextField(10);
-        tfValor5 = new JTextField(10);
-        tfValor6 = new JTextField(10);
+        junit1 = new JLabel("USD");
+        junit2 = new JLabel("EUR");
+        junit3 = new JLabel("GBP");
+        junit4 = new JLabel("ARS");
+        junit5 = new JLabel("CLP");
+        junit6 = new JLabel("BRL");
 
-        bLimpar = new JButton("Limpar");
-        bConverter = new JButton("Converter");
+        String[] optionMoedas = {
+                junit1.getText(),
+                junit2.getText(),
+                junit3.getText(),
+                junit4.getText(),
+                junit5.getText(),
+                junit6.getText()
+        };
 
-        bConverter.setToolTipText("Efetua a conversão do valor dado");
+        String[] optionsToChoose = {
+                jUnidade1.getText(),
+                jUnidade2.getText(),
+                jUnidade3.getText(),
+                jUnidade4.getText(),
+                jUnidade5.getText(),
+                jUnidade6.getText()
+        };
 
-        JPanel panel = new JPanel(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.insets = new Insets(5, 5, 5, 5);
+        JFrame jFrame = new JFrame();
 
-        c.gridx = 0;
-        c.gridy = 0;
-        panel.add(jUnidade1, c);
+        JComboBox<String> jComboBox1 = new JComboBox<>(optionsToChoose);
+        jComboBox1.setBounds(180, 50, 100, 20);
 
-        c.gridx = 1;
-        panel.add(jUnidade2, c);
+        JComboBox<String> jComboBox2 = new JComboBox<>(optionMoedas);
+        jComboBox2.setBounds(15,50,60,20);
 
-        c.gridx = 2;
-        panel.add(jUnidade3, c);
+        JButton jButton = new JButton("Selecionar");
+        JLabel jLabel = new JLabel();
 
-        c.gridx = 3;
-        panel.add(jUnidade4, c);
+        jTextField.setBounds(80, 50, 90, 20);
+        jButton.setBounds(180, 80, 100, 20);
+        resultado.setBounds(140, 200, 100, 60);
+        jLabel.setBounds(90, 100, 400, 100);
 
-        c.gridx = 4;
-        panel.add(jUnidade5, c);
+        // estilização
+        int buttonWidth = 100;
+        int buttonHeight = 30;
 
-        c.gridx = 5;
-        panel.add(jUnidade6, c);
+        jComboBox1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        jComboBox1.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
 
-        c.gridx = 0;
-        c.gridy = 1;
-        panel.add(tfValor1, c);
+        jComboBox2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+        jComboBox2.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
 
-        c.gridx = 1;
-        panel.add(tfValor2, c);
+        resultado.setFont(new Font("Verdana", Font.BOLD, 15));
+        resultado.setForeground(new Color(0, 0, 0));
 
-        c.gridx = 2;
-        panel.add(tfValor3, c);
+        jButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        jButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
+        jButton.setForeground(Color.WHITE);
+        jButton.setBackground(new Color(0, 0, 0));
+        //jButton.setFont(new Font("verdana", Font.BOLD, 22));
+        //fim estilizaçã0
 
-        c.gridx = 3;
-        panel.add(tfValor4, c);
+        jFrame.add(jButton);
+        jFrame.add(jComboBox1);
+        jFrame.add(jLabel);
+        jFrame.add(jTextField);
+        jFrame.add(resultado);
+        jFrame.add(jComboBox2);
 
-        c.gridx = 4;
-        panel.add(tfValor5, c);
+        jFrame.setLayout(null);
+        jFrame.setSize(350, 400);
+        jFrame.setVisible(true);
 
-        c.gridx = 5;
-        panel.add(tfValor6, c);
-
-        c.gridx = 0;
-        c.gridy = 2;
-        panel.add(bLimpar, c);
-
-        c.gridx = 1;
-        panel.add(bConverter, c);
-
-        add(panel);
-
-        bLimpar.addActionListener(new ActionListener() {
+        jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                bLimparClick();
-            }
-        });
 
-        bConverter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                int choice1 = jComboBox1.getSelectedIndex();
+                int choice2 = jComboBox2.getSelectedIndex();
+
                 try {
-                    bConverterClick();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                    bConverterClick(choice1,choice2);
+                } catch (NumberFormatException | IOException exc) {
+                    jTextField.selectAll();
+                    jTextField.requestFocus();
+                    Toolkit.getDefaultToolkit().beep();
                 }
             }
         });
-
-        getContentPane().setBackground(Color.cyan);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
-        setLocationRelativeTo(null);
     }
 
-    private void bLimparClick() {
-        tfValor1.setText("");
-        tfValor2.setText("");
-    }
-
-    private void bConverterClick() throws IOException {
-        if (tfValor2.getText().equals("") && !tfValor1.getText().equals("")) {
+    private void bConverterClick(int vrl1, int vrl2) throws IOException {
+        if (!jTextField.getText().equals("")) {
             try {
-                BigDecimal tfValor1Big = new BigDecimal(tfValor1.getText());
-                BigDecimal res = Conversor.converterMoedaBrasileiraEua(tfValor1Big);
-
-                tfValor1.setText("");
-                tfValor2.setText("" + df.format(res));
-
-                BigDecimal euro = Conversor.converterMoedaBrasileiraEuro(tfValor1Big);
-                tfValor3.setText("" + df.format(euro));
-
-                BigDecimal librasEstelinas = Conversor.converterMoedaBrasileiraLibrasEstelinas(tfValor1Big);
-                tfValor4.setText(""+ df.format(librasEstelinas));
-
-                BigDecimal pesoArgentinos = Conversor.converterMoedaBrasileiraPesosArgentinos(tfValor1Big);
-                tfValor5.setText("" + df.format(pesoArgentinos));
-
-                BigDecimal pesoChileno = Conversor.converterMoedaBrasileiraPesoChileno(tfValor1Big);
-                tfValor6.setText("" + df.format(pesoChileno));
-
-
+                BigDecimal tfValor1Big = new BigDecimal(jTextField.getText());
+                BigDecimal res = Conversor.converterMoedaBrasileiraEua(tfValor1Big,vrl1,vrl2);
+                jTextField.setText("");
+                resultado.setText("" + df.format(res));
 
             } catch (NumberFormatException exc) {
-                tfValor1.selectAll();
-                tfValor1.requestFocus();
-                Toolkit.getDefaultToolkit().beep();
-            }
-        } else if (tfValor1.getText().equals("") && !tfValor2.getText().equals("")) {
-            try {
-                BigDecimal tfValor2Big = new BigDecimal(tfValor2.getText());
-                BigDecimal res = Conversor.converterMoedaEuaBrasileira(tfValor2Big);
-                tfValor2.setText("");
-                tfValor1.setText("" + df.format(res));
-            } catch (NumberFormatException exc) {
-                tfValor2.selectAll();
-                tfValor2.requestFocus();
+                jTextField.selectAll();
+                jTextField.requestFocus();
                 Toolkit.getDefaultToolkit().beep();
             }
         }

@@ -35,7 +35,7 @@ Desafio da Alura + ONE Desenvolver um conversor de moedas com "interface" grafic
 >       - Converter de Peso argentino a  Reais
 >       - Converter de Peso Chileno a Reais
 
-> ### Interface Conversor de moedas.
+> ### Conversor de moedas.
 > ![java_4UNhGtCX7a](https://i.pinimg.com/564x/58/53/f5/5853f5d5d5d024029265dc112f3902d1.jpg)
 
 ###### *Desafio extra: Adicionar outro tipo de conversor no programa.*

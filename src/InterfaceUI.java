@@ -1,53 +1,51 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class InterfaceUI extends JFrame {
-    private JLabel jUnidade1, jUnidade2, jUnidade3, jUnidade4, jUnidade5, jUnidade6;
-    private JLabel junit1,junit2,junit3,junit4,junit5,junit6;
-    private DecimalFormat df = new DecimalFormat("####,#00.00");
 
+    final DecimalFormat df = new DecimalFormat("####,#00.00");
     JTextField jTextField = new JTextField();
     JLabel resultado = new JLabel("Resultado");
 
     public InterfaceUI() {
 
         super("Conversor");
+        JLabel fieldDolar, fieldEuro, fieldLibras, fieldPesoArgentino, fieldPesoChileno, fieldReal;
+        JLabel fieldUSD,fieldEUR,fieldGBP,fieldARS,fieldCLP,fieldBRL;
 
-        jUnidade1 = new JLabel("Dólar");
-        jUnidade2 = new JLabel("Euro");
-        jUnidade3 = new JLabel("Libras Esterlinas");
-        jUnidade4 = new JLabel("Peso Argentino");
-        jUnidade5 = new JLabel("Peso Chileno");
-        jUnidade6 = new JLabel("Real");
+        fieldDolar = new JLabel("Dólar");
+        fieldEuro = new JLabel("Euro");
+        fieldLibras = new JLabel("Libras Esterlinas");
+        fieldPesoArgentino = new JLabel("Peso Argentino");
+        fieldPesoChileno = new JLabel("Peso Chileno");
+        fieldReal = new JLabel("Real");
 
-        junit1 = new JLabel("USD");
-        junit2 = new JLabel("EUR");
-        junit3 = new JLabel("GBP");
-        junit4 = new JLabel("ARS");
-        junit5 = new JLabel("CLP");
-        junit6 = new JLabel("BRL");
+        fieldUSD = new JLabel("USD");
+        fieldEUR = new JLabel("EUR");
+        fieldGBP = new JLabel("GBP");
+        fieldARS = new JLabel("ARS");
+        fieldCLP = new JLabel("CLP");
+        fieldBRL = new JLabel("BRL");
 
-        String[] optionMoedas = {
-                junit1.getText(),
-                junit2.getText(),
-                junit3.getText(),
-                junit4.getText(),
-                junit5.getText(),
-                junit6.getText()
+        String[] optionCoin = {
+                fieldUSD.getText(),
+                fieldEUR.getText(),
+                fieldGBP.getText(),
+                fieldARS.getText(),
+                fieldCLP.getText(),
+                fieldBRL.getText()
         };
 
         String[] optionsToChoose = {
-                jUnidade1.getText(),
-                jUnidade2.getText(),
-                jUnidade3.getText(),
-                jUnidade4.getText(),
-                jUnidade5.getText(),
-                jUnidade6.getText()
+                fieldDolar.getText(),
+                fieldEuro.getText(),
+                fieldLibras.getText(),
+                fieldPesoArgentino.getText(),
+                fieldPesoChileno.getText(),
+                fieldReal.getText()
         };
 
         JFrame jFrame = new JFrame();
@@ -55,7 +53,7 @@ public class InterfaceUI extends JFrame {
         JComboBox<String> jComboBox1 = new JComboBox<>(optionsToChoose);
         jComboBox1.setBounds(180, 50, 100, 20);
 
-        JComboBox<String> jComboBox2 = new JComboBox<>(optionMoedas);
+        JComboBox<String> jComboBox2 = new JComboBox<>(optionCoin);
         jComboBox2.setBounds(15,50,60,20);
 
         JButton jButton = new JButton("Selecionar");
@@ -83,7 +81,6 @@ public class InterfaceUI extends JFrame {
         jButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         jButton.setForeground(Color.WHITE);
         jButton.setBackground(new Color(0, 0, 0));
-
         //fim estilizaçã0
 
         jFrame.add(jButton);
@@ -97,20 +94,17 @@ public class InterfaceUI extends JFrame {
         jFrame.setSize(350, 400);
         jFrame.setVisible(true);
 
-        jButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        jButton.addActionListener(e -> {
 
-                int choice1 = jComboBox1.getSelectedIndex();
-                int choice2 = jComboBox2.getSelectedIndex();
+            int choice1 = jComboBox1.getSelectedIndex();
+            int choice2 = jComboBox2.getSelectedIndex();
 
-                try {
-                    bConverterClick(choice1,choice2);
-                } catch (NumberFormatException | IOException exc) {
-                    jTextField.selectAll();
-                    jTextField.requestFocus();
-                    Toolkit.getDefaultToolkit().beep();
-                }
+            try {
+                bConverterClick(choice1,choice2);
+            } catch (NumberFormatException | IOException exc) {
+                jTextField.selectAll();
+                jTextField.requestFocus();
+                Toolkit.getDefaultToolkit().beep();
             }
         });
     }
@@ -119,9 +113,9 @@ public class InterfaceUI extends JFrame {
         if (!jTextField.getText().equals("")) {
             try {
                 BigDecimal tfValor1Big = new BigDecimal(jTextField.getText());
-                BigDecimal res = Conversor.converterMoedaBrasileiraEua(tfValor1Big,vrl1,vrl2);
+                BigDecimal res = Converter.convertCurrency(tfValor1Big,vrl1,vrl2);
                 jTextField.setText("");
-                resultado.setText("" + df.format(res));
+                resultado.setText(df.format(res));
 
             } catch (NumberFormatException exc) {
                 jTextField.selectAll();

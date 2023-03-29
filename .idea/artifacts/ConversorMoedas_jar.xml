@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jlink" name="ConversorMoedas:jar">
+  <artifact type="exploded-ear" name="ConversorMoedas:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/ConversorMoedas_jar</output-path>
     <root id="root">
       <element id="module-output" name="ConversorMoedas" />

@@ -1,12 +1,11 @@
-import javax.swing.*;
-import java.io.IOException;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Conversor {
+public class Converter {
 
-   public static BigDecimal brasileira(int x){
+   public static BigDecimal brazilianToForeigner(int x){
 
        List<BigDecimal> real = new ArrayList<>();
 
@@ -19,7 +18,7 @@ public class Conversor {
 
        return real.get(x);
    }
-   public static BigDecimal moeda(int x){
+   public static BigDecimal foreignToBrazilian(int x){
 
        List<BigDecimal> value = new ArrayList<>();
 
@@ -32,14 +31,11 @@ public class Conversor {
 
        return value.get(x);
    }
-    public static BigDecimal converterMoedaBrasileiraEua(BigDecimal dados, int x, int y) throws IOException {
-
-        System.out.println("valor x:" + x);
-        System.out.println("valor y:" + y);
+    public static BigDecimal convertCurrency(BigDecimal dados, int x,int y){
 
         BigDecimal valueTeclado = new BigDecimal(String.valueOf(dados));
-        BigDecimal converterParaMoedaBrasileira = valueTeclado.divide(brasileira(x), 2, BigDecimal.ROUND_HALF_UP);
-        BigDecimal valueFInalConvertido = converterParaMoedaBrasileira.divide(moeda(y), 2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal converterParaMoedaBrasileira = valueTeclado.divide(brazilianToForeigner(x), 2,  RoundingMode.HALF_UP);
+        BigDecimal valueFInalConvertido = converterParaMoedaBrasileira.divide(foreignToBrazilian(y), 2,  RoundingMode.HALF_UP);
 
         System.out.println("O valor da moeda " + valueFInalConvertido);
 

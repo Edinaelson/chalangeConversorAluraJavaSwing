@@ -10,7 +10,7 @@ public class Conversor {
 
        List<BigDecimal> real = new ArrayList<>();
 
-       real.add(new BigDecimal("5.26"));        //0 EUA
+       real.add(new BigDecimal("5.17"));        //0 EUA
        real.add(new BigDecimal("5.61"));        //1 EURO
        real.add(new BigDecimal("6.43"));        //2 LIBRA
        real.add(new BigDecimal("0.025"));       //3 PESO ARGENTINO

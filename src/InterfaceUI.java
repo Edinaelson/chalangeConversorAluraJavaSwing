@@ -83,7 +83,7 @@ public class InterfaceUI extends JFrame {
         jButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         jButton.setForeground(Color.WHITE);
         jButton.setBackground(new Color(0, 0, 0));
-        //jButton.setFont(new Font("verdana", Font.BOLD, 22));
+
         //fim estilizaçã0
 
         jFrame.add(jButton);

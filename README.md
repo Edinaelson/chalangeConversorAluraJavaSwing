@@ -7,7 +7,7 @@
 
 ### **Descrição**📃
 
-Desafio da Alura + ONE Desenvolver um conversor de moedas com interface grafica utilizando Java e Swing.
+Desafio da Alura + ONE Desenvolver um conversor de moedas com "interface" grafica utilizando Java e Swing.
 
 #### Elementos principais do programa:
 
@@ -27,7 +27,7 @@ Desafio da Alura + ONE Desenvolver um conversor de moedas com interface grafica 
 >     - Converter de Reais a Peso argentino
 >     - Converter de Reais a Peso Chileno
 
->Lembrando que deve ser possível também converter de forma inversa ou seja:
+>Lembrando que deve ser possível também converter de forma inversa:
 >
 >       - Converter de Dólar a Reais
 >       - Converter de Euro a Reais
@@ -35,7 +35,7 @@ Desafio da Alura + ONE Desenvolver um conversor de moedas com interface grafica 
 >       - Converter de Peso argentino a  Reais
 >       - Converter de Peso Chileno a Reais
 
-### Conversor
-![java_4UNhGtCX7a](https://i.pinimg.com/564x/58/53/f5/5853f5d5d5d024029265dc112f3902d1.jpg)
+> ### Interface Conversor de moedas.
+> ![java_4UNhGtCX7a](https://i.pinimg.com/564x/58/53/f5/5853f5d5d5d024029265dc112f3902d1.jpg)
 
 ###### *Desafio extra: Adicionar outro tipo de conversor no programa.*

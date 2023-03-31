@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-ear" name="ConversorMoedas:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/ConversorMoedas_jar</output-path>
-    <root id="root">
+  <artifact type="jar" name="ConversorMoedas:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="ConversorMoedas.jar">
       <element id="module-output" name="ConversorMoedas" />
     </root>
   </artifact>
